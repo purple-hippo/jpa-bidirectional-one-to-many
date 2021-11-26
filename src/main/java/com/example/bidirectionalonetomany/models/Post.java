@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,5 +41,10 @@ public class Post {
     public void removeComment(Comment comment) {
         comments.remove(comment);
         comment.setPost(null);
+    }
+
+    @Transient
+    public int getCountComments(){
+        return comments.size();
     }
 }
