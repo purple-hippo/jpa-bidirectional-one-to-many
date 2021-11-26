@@ -1,8 +1,8 @@
-package com.example.bidirectionalonetomanyh2.controllers;
+package com.example.bidirectionalonetomany.controllers;
 
-import com.example.bidirectionalonetomanyh2.Post;
-import com.example.bidirectionalonetomanyh2.Comment;
-import com.example.bidirectionalonetomanyh2.PostRepository;
+import com.example.bidirectionalonetomany.models.Post;
+import com.example.bidirectionalonetomany.models.Comment;
+import com.example.bidirectionalonetomany.repositories.PostRepository;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,7 +1,7 @@
-package com.example.bidirectionalonetomanyh2.controllers;
+package com.example.bidirectionalonetomany.controllers;
 
-import com.example.bidirectionalonetomanyh2.Post;
-import com.example.bidirectionalonetomanyh2.PostRepository;
+import com.example.bidirectionalonetomany.models.Post;
+import com.example.bidirectionalonetomany.repositories.PostRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +17,7 @@ public class PostController {
 
     @GetMapping
     public List<Post> getAllPosts() {
-        var posts = postRepository.findAll();
-        return posts;
+        return postRepository.findAll();
     }
 
     @GetMapping("/{id}")

@@ -1,5 +1,8 @@
-package com.example.bidirectionalonetomanyh2;
+package com.example.bidirectionalonetomany;
 
+import com.example.bidirectionalonetomany.models.Comment;
+import com.example.bidirectionalonetomany.models.Post;
+import com.example.bidirectionalonetomany.repositories.PostRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -19,14 +22,14 @@ public class BidirectionalOneToManyApplication {
         return args -> {
             Post post = new Post("fp");
             log.warn("post created" + post);
-            Comment c1 = new Comment("comment1");
-            Comment c2 = new Comment("comment2");
 
-            post.addComment(c1);
+            Comment c1 = new Comment("comment1");
             log.warn("comment created " + c1);
-            post.addComment(c2);
+            Comment c2 = new Comment("comment2");
             log.warn("comment created " + c2);
 
+            post.addComment(c1);
+            post.addComment(c2);
             postRepository.save(post);
 
         };
