@@ -8,10 +8,10 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @Slf4j
-public class BidirectionalOneToManyH2Application {
+public class BidirectionalOneToManyApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(BidirectionalOneToManyH2Application.class, args);
+        SpringApplication.run(BidirectionalOneToManyApplication.class, args);
     }
 
     @Bean
@@ -19,20 +19,15 @@ public class BidirectionalOneToManyH2Application {
         return args -> {
             Post post = new Post("fp");
             log.warn("post created" + post);
-            PostComment c1 = new PostComment("c1WWWrev");
-            PostComment c2 = new PostComment("c2WWWrev");
+            Comment c1 = new Comment("comment1");
+            Comment c2 = new Comment("comment2");
 
-            post.getComments().add(c1);
+            post.addComment(c1);
             log.warn("comment created " + c1);
-            post.getComments().add(c2);
+            post.addComment(c2);
             log.warn("comment created " + c2);
 
             postRepository.save(post);
-//            postRepository.delete(post);
-//            log.warn("" + post.getComments().size());
-
-//            post.getComments().remove(c2);
-//            log.warn("after del of comment c2: " + post.getComments().size());
 
         };
     }

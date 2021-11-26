@@ -1,9 +1,9 @@
-package com.example.bidirectionalonetomanyh2;
+package com.example.bidirectionalonetomanyh2.controllers;
 
+import com.example.bidirectionalonetomanyh2.Post;
+import com.example.bidirectionalonetomanyh2.PostRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,4 +26,16 @@ public class PostController {
         var post = postRepository.findById(id).get();
         return ResponseEntity.ok(post);
     }
+
+    @PostMapping
+    public Post addPost(@RequestBody Post post) {
+        postRepository.save(post);
+        return post;
+    }
+
+    @DeleteMapping("/{postId}")
+    public void deletePost(@PathVariable Long postId){
+        postRepository.deleteById(postId);
+    }
+
 }

@@ -6,13 +6,10 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@EqualsAndHashCode
-@AllArgsConstructor
+@Data
 @NoArgsConstructor
-@Getter
-@Setter
-@ToString
+@Entity
+@Table(name = "posts")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,11 +20,15 @@ public class Post {
         this.title = title;
     }
 
-    @OneToMany(
-            cascade = CascadeType.ALL,
-            mappedBy = "post",
-            fetch = FetchType.EAGER,
-            orphanRemoval = true
-    )
-    List<PostComment> comments = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "post_id")
+    List<Comment> comments = new ArrayList<>();
+
+    public void addComment(Comment comment){
+        comments.add(comment);
+    }
+
+    public void removeComment(Comment comment){
+        comments.remove(comment);
+    }
 }
