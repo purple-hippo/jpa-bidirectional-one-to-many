@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>bidirectional-one-to-many-h2</artifactId>
+    <artifactId>bidirectional-one-to-many</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>bidirectional-one-to-many-h2</name>
+    <name>bidirectional-one-to-many</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>

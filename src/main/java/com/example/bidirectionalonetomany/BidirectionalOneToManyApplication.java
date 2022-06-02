@@ -7,31 +7,41 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 @Slf4j
-public class BidirectionalOneToManyApplication {
+public class BidirectionalOneToManyApplication implements CommandLineRunner {
+
+    public BidirectionalOneToManyApplication(PostRepository postRepository) {
+        this.postRepository = postRepository;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(BidirectionalOneToManyApplication.class, args);
     }
 
-    @Bean
-    public CommandLineRunner runner(PostRepository postRepository) {
-        return args -> {
-            Post post = new Post("fp");
-            log.warn("post created" + post);
+//    @Bean
+//    public CommandLineRunner runner(PostRepository postRepository) {
+//        return args -> {
+//
+//
+//        };
+//    }
 
-            Comment c1 = new Comment("comment1");
-            log.warn("comment created " + c1);
-            Comment c2 = new Comment("comment2");
-            log.warn("comment created " + c2);
+    final PostRepository postRepository;
 
-            post.addComment(c1);
-            post.addComment(c2);
-            postRepository.save(post);
+    @Override
+    public void run(String... args) throws Exception {
+        Post post = new Post("First post!");
+        log.warn("post created" + post);
 
-        };
+        Comment c1 = new Comment("comment1");
+        log.warn("comment created " + c1);
+        Comment c2 = new Comment("comment2");
+        log.warn("comment created " + c2);
+
+        post.addComment(c1);
+        post.addComment(c2);
+        postRepository.save(post);
     }
 }

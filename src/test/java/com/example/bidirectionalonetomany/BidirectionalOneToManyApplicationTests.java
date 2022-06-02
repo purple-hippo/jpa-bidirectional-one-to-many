@@ -1,4 +1,4 @@
-package com.example.bidirectionalonetomanyh2;
+package com.example.bidirectionalonetomany;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
