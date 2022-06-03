@@ -1,9 +1,11 @@
 
 Before running the project you have to set up the database.  
 On the root of the project run the following commands (you'll need to have docker engine installed):  
-
-`docker build -t test .`  
-`docker run -d --name test -p 5432:5432 test`  
+  
+to start the container set up in the docker-compose.yml file: 
+`docker-compose up -d`    
+to stop the container:
+`docker-compose down`  
   
 These commands will create a postgres image and spin up a container from it. 
 The spring boot app will connect to this container.
