@@ -33,14 +33,14 @@ public class Post {
             orphanRemoval = true)
     private List<Comment> comments = new ArrayList<>();
 
-    public void removeComment(Comment comment) {
-        comments.remove(comment);
-        comment.setPost(null);
-    }
-
     public void addComment(Comment comment) {
         comments.add(comment);
         comment.setPost(this);
+    }
+
+    public void removeComment(Comment comment) {
+        comments.remove(comment);
+        comment.setPost(null);
     }
 
     @Transient
