@@ -8,8 +8,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication
 @Slf4j
+@SpringBootApplication
 public class BidirectionalOneToManyApplication implements CommandLineRunner {
 
     public BidirectionalOneToManyApplication(PostRepository postRepository) {
