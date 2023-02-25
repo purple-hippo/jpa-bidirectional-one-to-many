@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
@@ -27,13 +28,10 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NonNull
     private String review;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JsonIgnore
     private Post post;
-
-    public Comment(String review) {
-        this.review = review;
-    }
 }
