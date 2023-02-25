@@ -18,7 +18,6 @@ import javax.persistence.Table;
 @EqualsAndHashCode
 @Getter
 @Setter
-@RequiredArgsConstructor
 @NoArgsConstructor
 @Entity
 @Table(name = "comments")
